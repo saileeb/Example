@@ -1,0 +1,18 @@
+require "selenium/webdriver"
+
+Given /^that i am on homepage$/ do
+	visit "http://www.google.com"	
+end
+When /^i fill "(.*?)" with "(.*?)"$/ do |text_field, book|
+	fill_in text_field, :with => book
+end
+
+When /^i click on "(.*?)" button$/ do |submit_id|
+	click_button(submit_id)
+end
+
+
+Then /^the page should contain "(.*?)"$/ do |book|
+	assert page.has_content?(book)
+end
+
